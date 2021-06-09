@@ -86,7 +86,7 @@ export class TestRail {
     public async publish(name: string, description: string, results: TestRailResult[], callback?: Function): Promise<void> {
         console.log(`Publishing ${results.length} test result(s) to ${this.base}`);
 
-        if (this.runId !== null) {
+        if (this.runId === null) {
             console.log(`Creating a test run`);
             const body = await this._post(`add_run/${this.options.projectId}`, {
                 "suite_id": this.options.suiteId,
