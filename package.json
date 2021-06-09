@@ -23,10 +23,11 @@
     "url": "https://github.com/awaragi/mocha-testrail-reporter/issues"
   },
   "scripts": {
-    "tsc": "tsc",
+    "build": "npm run clean && npm run tsc",
     "clean": "rimraf dist",
+    "prepare": "npm run build",
     "test": "mocha dist/test",
-    "build": "npm run clean && npm run tsc"
+    "tsc": "tsc"
   },
   "dependencies": {
     "btoa": "^1.1.2",
@@ -41,6 +42,6 @@
     "@types/node": "^6.0.58",
     "chai": "^3.5.0",
     "rimraf": "^2.5.4",
-    "typescript": "^2.1.4"
+    "typescript": "^4.3.2"
   }
 }
