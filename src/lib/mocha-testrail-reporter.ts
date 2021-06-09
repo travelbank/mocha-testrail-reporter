@@ -10,11 +10,14 @@ export class MochaTestRailReporter extends reporters.Spec {
     private fails: number = 0;
     private pending: number = 0;
     private out: string[] = [];
+    private testrail: TestRail = null;
 
     constructor(runner: any, options: any) {
         super(runner);
 
         let reporterOptions: TestRailOptions = <TestRailOptions>options.reporterOptions;
+        this.testrail = new TestRail(reporterOptions);
+
         this.validate(reporterOptions, 'domain');
         this.validate(reporterOptions, 'username');
         this.validate(reporterOptions, 'password');
@@ -96,9 +99,9 @@ Pending: ${this.pending}
 Total: ${total}
 
 Execution details:
-${this.out.join('\n')}                     
+${this.out.join('\n')}
 `;
-            new TestRail(reporterOptions).publish(name, description, this.results);
+            this.testrail.publish(name, description, this.results);
         });
     }
 
