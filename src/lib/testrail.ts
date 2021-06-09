@@ -6,7 +6,6 @@ import {TestRailOptions, TestRailResult} from "./testrail.interface";
  */
 export class TestRail {
     private base: String;
-    private runId: number = null;
 
     constructor(private options: TestRailOptions) {
         // compute base url
@@ -86,7 +85,7 @@ export class TestRail {
     public async publish(name: string, description: string, results: TestRailResult[], callback?: Function): Promise<void> {
         console.log(`Publishing ${results.length} test result(s) to ${this.base}`);
 
-        if (this.runId === null) {
+        if (this.options.runId === null || this.options.runId === undefined) {
             console.log(`Creating a test run`);
             const body = await this._post(`add_run/${this.options.projectId}`, {
                 "suite_id": this.options.suiteId,
@@ -96,11 +95,11 @@ export class TestRail {
                 "include_all": true
             });
             const runId = body.id;
-            this.runId = runId;
-            console.log(`Test Run ID created: ${this.runId}`);
+            this.options.runId = runId;
+            console.log(`Test Run ID created: ${this.options.runId}`);
         }
 
-        await this._post(`add_results_for_cases/${this.runId}`, {
+        await this._post(`add_results_for_cases/${this.options.runId}`, {
             results: results
         });
     }
