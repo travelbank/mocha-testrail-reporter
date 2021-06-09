@@ -82,6 +82,8 @@ ${test.err}`
         runner.on('end', () => {
             if (this.results.length == 0) {
                 console.warn("No testcases were matched. Ensure that your tests are declared correctly and matches TCxxx");
+                // do not create a test run if no test cases found
+                return;
             }
             let executionDateTime = new Date().toISOString();
             let total = this.passes + this.fails + this.pending;
