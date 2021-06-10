@@ -1,6 +1,6 @@
 {
-  "name": "mocha-testrail-reporter",
-  "version": "1.0.12",
+  "name": "@travelbank/mocha-testrail-reporter",
+  "version": "1.0.13",
   "description": "A Testrail reporter for mocha including TestRail API basic library",
   "main": "index.js",
   "private": false,
@@ -17,10 +17,10 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/awaragi/mocha-testrail-reporter.git"
+    "url": "https://github.com/travelbank/mocha-testrail-reporter.git"
   },
   "bugs": {
-    "url": "https://github.com/awaragi/mocha-testrail-reporter/issues"
+    "url": "https://github.com/travelbank/mocha-testrail-reporter/issues"
   },
   "scripts": {
     "build": "npm run clean && npm run tsc",

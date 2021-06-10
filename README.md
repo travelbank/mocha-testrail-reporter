@@ -1,4 +1,4 @@
-#Testrail Reporter for Mocha
+# Testrail Reporter for Mocha (Fork)
 
 [![npm version](https://badge.fury.io/js/mocha-testrail-reporter.svg)](https://badge.fury.io/js/mocha-testrail-reporter)
 
