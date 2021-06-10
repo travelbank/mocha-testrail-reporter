@@ -1,5 +1,9 @@
 # Testrail Reporter for Mocha (Fork)
 
+## Changes in the fork
+
+- Added a new mocha option `runId`.
+
 [![npm version](https://badge.fury.io/js/mocha-testrail-reporter.svg)](https://badge.fury.io/js/mocha-testrail-reporter)
 
 Pushes test results into Testrail system.
